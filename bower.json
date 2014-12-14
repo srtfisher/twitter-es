@@ -1,0 +1,23 @@
+{
+  "name": "twitter-es",
+  "version": "0.0.1",
+  "homepage": "https://github.com/srtfisher/twitter-es",
+  "authors": [
+    "Sean Fisher <hi@seanfisher.co>"
+  ],
+  "description": "Twitter Search Client for Work",
+  "keywords": [
+    "laravel"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}
