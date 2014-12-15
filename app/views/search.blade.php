@@ -43,7 +43,7 @@
 
         @foreach($results as $result)
         <tr>
-          <td>{{$result->message}}</td>
+          <td>{{Twitter::linkify($result->message)}}</td>
 
           <td>
             <a href="http://twitter.com/{{$result->user}}">{{'@'.$result->user}}</a>
