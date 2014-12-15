@@ -8,16 +8,17 @@ class HomeController extends BaseController {
 		$query = new Elastica\Query();
 		$query->setLimit(100);
 
-		if (Input::has('q') && Input::get('q')) {
-			$elasticaQueryString = new Elastica\Query\QueryString;
-			$elasticaQueryString->setDefaultOperator('AND');
-			$elasticaQueryString->setQuery(Input::get('q', ''));
-			$query->setQuery($elasticaQueryString);
+		$query_string = Input::get('q', '');
+
+		if (Input::has('user') && Input::get('user')) {
+			$query_string .= ' user:'.Input::get('user');
 		}
 
-		if (Input::has('user')) {
-			$userFilter = new Elastica\Filter\Term(['user' => Input::get('user')]);
-			$query->addFilter($userFilter);
+		if ($query_string) {
+			$elasticaQueryString = new Elastica\Query\QueryString;
+			$elasticaQueryString->setDefaultOperator('AND');
+			$elasticaQueryString->setQuery($query_string);
+			$query->setQuery($elasticaQueryString);
 		}
 
 		$query->setSort([
@@ -33,10 +34,5 @@ class HomeController extends BaseController {
 
 		return View::make('search')
 			->with('results', $results);
-	}
-
-	public function getSearch()
-	{
-
 	}
 }

@@ -26,6 +26,9 @@
 
     <form action="/" method="get">
       <input type="text" name="q" value="{{Input::get('q', '')}}" class="form-control input-lg" placeholder="Search for...">
+      <br>
+      <input type="text" name="user" value="{{Input::get('user', '')}}" class="form-control" placeholder="User">
+      <br>
       <button type="submit" class="btn btn-primary">
         Search
       </button>
@@ -59,5 +62,12 @@
         @endforeach
     </table>
   </div>
+
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+  <script>
+  $(function() {
+
+  });
+  </script>
 </body>
 </html>
