@@ -6,6 +6,7 @@ class HomeController extends BaseController {
 
 		// Build the query
 		$query = new Elastica\Query();
+		$query->setLimit(100);
 
 		if (Input::has('q') && Input::get('q')) {
 			$elasticaQueryString = new Elastica\Query\QueryString;
